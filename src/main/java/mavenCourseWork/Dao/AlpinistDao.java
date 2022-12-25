@@ -3,7 +3,6 @@ package mavenCourseWork.Dao;
 import mavenCourseWork.app.Alpinist;
 import ru.laurent.db.base.ConnectionSettings;
 
-import javax.persistence.Id;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,14 +72,11 @@ public class AlpinistDao implements Dao<Alpinist, Integer> {
         }
     }
 
-
-
     @Override
     public void update(Alpinist alpinist) {
         String update = "UPDATE alpinist SET name = ?, address = ? " +
                 "WHERE alpinist_id = ?";
     }
-
 
     @Override
     public void deleteByPK(Integer id) {
@@ -123,8 +119,6 @@ public class AlpinistDao implements Dao<Alpinist, Integer> {
 
         return alpinist;
     }
-
-
 
     @Override
     public List<Alpinist> getAll() {

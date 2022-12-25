@@ -18,7 +18,7 @@ public class GroupDao implements Dao<Group, Integer> {
         return manager.find(Group.class, id);
     }
     public List<Group> getAll(){
-        Query queryGroup = manager.createQuery("SELECT c FROM ClimbingGroup c");
+        Query queryGroup = manager.createQuery("SELECT c FROM Group c");
         List<Group> allGroup = (List<Group>) queryGroup.getResultList();
         return allGroup;
     }
@@ -30,7 +30,7 @@ public class GroupDao implements Dao<Group, Integer> {
     }
     public List<Group> findByNameEmail(){
         TypedQuery<Group> queryGroup = manager.createQuery(
-                "SELECT c FROM ClimbingGroup c WHERE c.start > myNow" , Group.class);
+                "SELECT c FROM Group c WHERE c.start > myNow" , Group.class);
         List<Group> myGroup = queryGroup
                 .setParameter("myNow", LocalDateTime.now())
                 .getResultList();

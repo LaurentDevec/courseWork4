@@ -26,9 +26,9 @@ public class MountainDao implements Dao<Mountain, Integer> {
     public void deleteByPK(Integer id){
         manager.remove(getByPK(id));
     }
-    public List<Mountain> findHeight (int min, int max){
+    public List<Mountain> findHigh (int min, int max){
         TypedQuery<Mountain> queryFindHeight = manager.createQuery(
-                "SELECT m FROM Mountain m WHERE m.height > :min AND m.height < :max" , Mountain.class);
+                "SELECT m FROM Mountain m WHERE m.high > :min AND m.high < :max" , Mountain.class);
         List<Mountain> myMountain = queryFindHeight
                 .setParameter("min", min)
                 .setParameter("max", max)

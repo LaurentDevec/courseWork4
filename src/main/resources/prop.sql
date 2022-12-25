@@ -13,4 +13,15 @@ SELECT alpinist_id, name, addresses
 FROM tb_alpinists
 WHERE age BETWEEN 30 AND 50;
 
+UPDATE tb_alpinists
+SET name = 'Michail'
+WHERE name = 'Mike'
+
+SELECT name,
+FROM base_mountain
+WHERE high > 1000;
+
+SELECT country
+FROM base_mountain
+WHERE name = 'Elbrus';
 

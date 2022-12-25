@@ -11,37 +11,45 @@ public class Mountain implements Cloneable {
     private int id;
     @Column(unique = true, nullable = false)
     private String name;
-    private Integer height = 10; //значение по умолчанию
+    private String country;
+    private Integer high;
 
     public String getName() {
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         if (name == null || name.trim().length() < 2) throw new IllegalArgumentException("name must be longer than 2 letters");
         this.name = name;
     }
 
-    public int getHeight() {
-
-        return height;
+    private void setCountry(String country) {
+        if (country == null || country.trim().length() < 2) throw new IllegalArgumentException("country must be longer than 2 letters");
+        this.country = country;
     }
 
-    private void setHeight(int height) {
-        if (height < 100) throw new IllegalArgumentException("height must be more than 100 meters");
-        this.height = height;
+    public int getHigh() {
+
+        return high;
+    }
+
+    private void setHigh(int high) {
+        if (high < 100) throw new IllegalArgumentException("high must be more than 100 meters");
+        this.high = high;
     }
 
     //    Конструктор
-    public Mountain(String name, int height) {
+    public Mountain(String name, int high, String country) {
         setName(name);
-        setHeight(height);
+        setHigh(high);
+        setCountry(country);
     }
     @Override
     public String toString() {
         return "Mountain{" +
                 "name='" + name + '\'' +
-                ", height=" + height +
+                "country='" + country + '\'' +
+                ", height=" + high +
                 '}';
     }
 
@@ -50,13 +58,14 @@ public class Mountain implements Cloneable {
         if (this == o) return true;
         if (!(o instanceof Mountain)) return false;
         Mountain mountain = (Mountain) o;
-        return height == mountain.height && Objects.equals(name, mountain.name);
+        return high == mountain.high && Objects.equals(name, mountain.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, height);
+        return Objects.hash(name, country, high);
     }
+
 
     @Override
     public Mountain clone() {

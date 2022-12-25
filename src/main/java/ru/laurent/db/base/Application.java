@@ -2,6 +2,7 @@ package ru.laurent.db.base;
 
 import mavenCourseWork.Dao.AlpinistDao;
 import mavenCourseWork.app.Alpinist;
+import mavenCourseWork.app.Mountain;
 
 public class Application {
     public static void main(String[] args) {
@@ -26,6 +27,8 @@ public class Application {
         alpinist03.setAddress("London");
         alpinist03.setAge(35);
         alpinistDao.add(alpinist03);
+
+
     }
 }
 
