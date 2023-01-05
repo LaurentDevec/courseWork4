@@ -4,8 +4,7 @@ import lombok.ToString;
 
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -14,9 +13,8 @@ public class Group {
 
         @Id
         private Integer id;
-        @OneToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.LAZY)
         private Mountain mountain;
-        @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
         private Alpinist[] alpinists;
 
 
@@ -63,8 +61,7 @@ public class Group {
 
         @Override
         public Group clone() {
-            Mountain copyM = this.mountain.clone();
-            Group copy = new Group(copyM, alpinists.length);
+            Group copy = new Group(mountain, alpinists.length);
             copy.alpinists = alpinists.clone();
             return copy;
         }

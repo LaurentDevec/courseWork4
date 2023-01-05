@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "my_climber")
+@Table(name = "my_alpinist")
 public class Alpinist implements Cloneable{
     @Column(nullable = false)
     private String name;
@@ -13,9 +13,8 @@ public class Alpinist implements Cloneable{
     @Column(nullable = false, unique = true)
 
     private int id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     private Group group;
-
     private int age;
 
     //    методы

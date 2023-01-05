@@ -52,7 +52,6 @@ public class Mountain implements Cloneable {
                 ", height=" + high +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,19 +59,9 @@ public class Mountain implements Cloneable {
         Mountain mountain = (Mountain) o;
         return high == mountain.high && Objects.equals(name, mountain.name);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(name, country, high);
     }
 
-
-    @Override
-    public Mountain clone() {
-        try {
-            return (Mountain) super.clone();
-        } catch (CloneNotSupportedException e) {
-            return null;
-        }
     }
-}
