@@ -55,12 +55,9 @@ public class AlpinistDao implements Dao<Alpinist, Integer> {
                 ConnectionSettings.PASSWORD
         )){
             try (PreparedStatement statement = connection.prepareStatement(insert)){
-                // передача данных вместо ? знаков
-                // INSERT INTO tb_authors (name, age) VALUES (?, ?)
                 statement.setString(1, alpinist.getName());
                 statement.setString(2, alpinist.getAddress());
                 statement.setInt(3, alpinist.getAge());
-                // statement.executeUpdate();
                 ResultSet resultSet = statement.executeQuery();
                 if (resultSet.next()) {
                     int id = resultSet.getInt("alpinist_id");
@@ -88,8 +85,6 @@ public class AlpinistDao implements Dao<Alpinist, Integer> {
         Alpinist alpinist = null;
         String select = "SELECT name, age FROM tb_authors " +
                 "WHERE author_id = ?";
-        // в блоке where можно использовать операторы сравнения =, > < >= <= !=
-        // в блоке where можно объединять условия через AND OR NOT
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {

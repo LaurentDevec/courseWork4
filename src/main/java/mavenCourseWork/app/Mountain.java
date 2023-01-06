@@ -1,6 +1,7 @@
 package mavenCourseWork.app;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -10,6 +11,9 @@ public class Mountain implements Cloneable {
     @Id
     private int id;
     @Column(unique = true, nullable = false)
+
+    @OneToMany(mappedBy = "mountain", fetch = FetchType.LAZY)
+    private List<Group> groups;
     private String name;
     private String country;
     private Integer high;

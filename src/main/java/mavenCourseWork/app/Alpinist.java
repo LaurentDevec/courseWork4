@@ -1,6 +1,7 @@
 package mavenCourseWork.app;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,7 +15,8 @@ public class Alpinist implements Cloneable{
 
     private int id;
     @ManyToMany(fetch = FetchType.LAZY)
-    private Group group;
+    private List<Group> groups;
+
     private int age;
 
     //    методы
@@ -55,11 +57,11 @@ public class Alpinist implements Cloneable{
     }
 
     public Group getGroup() {
-        return group;
+        return (Group) groups;
     }
 
     public void setGroup(Group group) {
-        this.group = group;
+        this.groups = groups;
     }
 
     @Override
