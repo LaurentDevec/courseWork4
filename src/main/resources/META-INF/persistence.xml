@@ -7,9 +7,9 @@
 
     <persistence-unit name="ormLesson" transaction-type="RESOURCE_LOCAL">
 
-        <class>ru.ifmo.db.jpa.entity.Alpinist</class>
-        <class>ru.ifmo.db.jpa.entity.Group</class>
-        <class>ru.ifmo.db.jpa.entity.Mountain</class>
+        <class>mavenCourseWork.app.Alpinist</class>
+        <class>mavenCourseWork.app.Group</class>
+        <class>mavenCourseWork.app.Mountain</class>
 
         <properties>
             <!--название бд-->
