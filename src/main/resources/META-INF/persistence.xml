@@ -7,9 +7,9 @@
 
     <persistence-unit name="ormLesson" transaction-type="RESOURCE_LOCAL">
 
-        <class>ru.ifmo.db.jpa.entity.Article</class>
-        <class>ru.ifmo.db.jpa.entity.User</class>
-        <class>ru.ifmo.db.jpa.entity.Nomination</class>
+        <class>ru.ifmo.db.jpa.entity.Alpinist</class>
+        <class>ru.ifmo.db.jpa.entity.Group</class>
+        <class>ru.ifmo.db.jpa.entity.Mountain</class>
 
         <properties>
             <!--название бд-->
